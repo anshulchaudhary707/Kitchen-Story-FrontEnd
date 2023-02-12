@@ -1,0 +1,13 @@
+.container {
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    text-align: center;
+    font-size: 32px;
+}
+
+.bt1 {
+    margin: 1vw;
+}

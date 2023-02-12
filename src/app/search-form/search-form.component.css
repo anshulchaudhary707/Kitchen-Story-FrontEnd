@@ -1,0 +1,20 @@
+.parent-div {
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.child-div {
+    width: 50vw;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    text-align: center;
+    font-size: 28px;
+}

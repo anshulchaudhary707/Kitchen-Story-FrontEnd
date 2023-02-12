@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <p><strong>Add Food Form</strong></p>
+                    <form class="container" #foodForm="ngForm" (ngSubmit)="addItem(foodForm.value)">
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" placeholder="Item Name" name="name" ngModel>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Price</label>
+                            <input type="text" class="form-control" placeholder="Item Price" name="price" ngModel>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Type</label>
+                            <input type="text" class="form-control" placeholder="Item Type" name="type" ngModel>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" rows="3" placeholder="Item Description" name="description"
+                                ngModel></textarea>
+                        </div>
+                        <input type="submit" class="btn btn-primary bt1"
+                            value="{{editMode ? 'Update Product' : 'Add Product'}}">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <p><strong>Food Items</strong></p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <!--<th scope="col">#</th>-->
+                                <th scope="col">Name</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Update</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngIf="food.length < 1 && !isFetching">
+                                <td colspan="5">No Food Items Available</td>
+                            </tr>
+                            <tr *ngIf="isFetching">
+                                <td colspan="5">Loading.....</td>
+                            </tr>
+                            <tr *ngFor="let item of food">
+                                <td>{{item.name}}</td>
+                                <td>{{item.type}}</td>
+                                <td>{{item.price}}</td>
+                                <td><button class="btn btn-primary" type="submit"
+                                        (click)="updateProduct(item.id)">Update</button></td>
+                                <td><button type="button" class="btn btn-danger"
+                                        (click)="onDeleteProduct(item.id)">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input class="btn btn-primary bt1" type="button" value="Fetch All Food Items"
+                        (click)="onProductsFetch()">
+                    <input class="btn btn-danger bt1" type="button" value="Delete All Food Items"
+                        (click)="deleteAllProducts()" *ngIf="!isFetching && food.length > 0">
+                    <input class="btn btn-danger bt1" type="button" value="Turn Off Edit Mode"
+                        (click)="editModeFunction()" *ngIf="editMode == true">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
