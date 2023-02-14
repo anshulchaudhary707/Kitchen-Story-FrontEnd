@@ -12,7 +12,9 @@ export class FoodService {
 
   searchedFood: Product;
 
-  searchedItem: string = "dal makhni";
+  searchedItem: string = "";
+
+  fetchedItem: Product = null;
 
   // add a product
   createProduct(foodData: Product) {

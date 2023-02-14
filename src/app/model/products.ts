@@ -3,5 +3,7 @@ export class Product {
     name: string;
     price: string;
     type: string;
+    nutrients: string;
     description: string;
+    image: string;
 }

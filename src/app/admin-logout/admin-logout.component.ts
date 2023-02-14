@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginServiceService } from '../login-service.service';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-admin-logout',
@@ -9,12 +9,12 @@ import { LoginServiceService } from '../login-service.service';
 })
 export class AdminLogoutComponent implements OnInit {
 
-  constructor(private loginService: LoginServiceService, private route: Router) { }
+  constructor(private loginService: LoginService, private route: Router) { }
 
   ngOnInit(): void {
     this.loginService.adminLoggedIn = false;
     setTimeout(() => {
       this.route.navigateByUrl("")
-    }, 5000);
+    }, 2000);
   }
 }

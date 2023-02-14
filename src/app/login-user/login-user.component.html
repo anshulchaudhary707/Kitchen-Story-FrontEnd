@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid">
+    <div *ngIf="ie == true" class="alert alert-danger" role="alert">
+        Invalid Email
+    </div>
+</div>
+<div class="container-fluid">
+    <div *ngIf="ip == true" class="alert alert-danger" role="alert">
+        Invalid Password
+    </div>
+</div>
+<div class="container-fluid">
+    <div *ngIf="lif == true && ip == false && ie == false" class="alert alert-danger" role="alert">
+        Log In First Before Adding anything to Cart
+    </div>
+</div>
+<div class="container-fluid">
+    <section class="">
+        <!-- Jumbotron -->
+        <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+            <div class="container">
+                <div class="row gx-lg-5 align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <h1 class="my-5 display-3 fw-bold ls-tight">
+                            Note:
+                        </h1>
+                        <p style="color: blue">
+                            <strong>We have hard coded the login details.</strong>
+                        </p>
+                        <p><strong>Emial: </strong>user@gmail.com</p>
+                        <p><strong>Passowrd: </strong>root</p>
+                    </div>
+
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <div class="card">
+                            <div class="card-body py-5 px-md-5">
+                                <p class="p1">User Log In Form</p>
+                                <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm.value)">
+                                    <!-- Email input -->
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="form3Example3">Email address</label>
+                                        <input type="email" id="form3Example3" class="form-control" name="email1"
+                                            required #name="ngModel" ngModel />
+                                        <span *ngIf="name.invalid && name.touched" style="color: red;">Enter Valid
+                                            Email</span>
+                                    </div>
+
+                                    <!-- Password input -->
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="form3Example4">Password</label>
+                                        <input type="password" id="form3Example4" class="form-control" name="password1"
+                                            ngModel #password="ngModel" required />
+                                        <span *ngIf="password.invalid && password.touched" style="color: red;">Enter
+                                            Valid
+                                            Password</span>
+                                    </div>
+                                    <!-- Submit button -->
+                                    <button type="submit" class="btn btn-primary btn-block mb-4"
+                                        [disabled]="loginForm.invalid">
+                                        Log In
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Jumbotron -->
+    </section>
+    <!-- Section: Design Block -->
+</div>

@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginServiceService } from '../login-service.service';
+import { LoginService } from '../login.service';
 
 @Component({
-  selector: 'app-admin-login',
-  templateUrl: './admin-login.component.html',
-  styleUrls: ['./admin-login.component.css']
+  selector: 'app-login-admin',
+  templateUrl: './login-admin.component.html',
+  styleUrls: ['./login-admin.component.css']
 })
-export class AdminLoginComponent {
+export class LoginAdminComponent {
 
-  constructor(private loginService: LoginServiceService, private route: Router) { }
+  constructor(private route: Router, private loginService: LoginService) { }
 
   title: string = "Admin Log In Form"
   ie: boolean = false;

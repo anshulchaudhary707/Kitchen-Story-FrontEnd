@@ -36,7 +36,7 @@ export class AddFoodComponent implements OnInit {
     if (this.editMode == false) {
       this.foodService.createProduct(foodData);
       this.form.setValue({
-        name: "", price: "", type: "", description: ""
+        name: "", price: "", type: "", nutrients: "", description: "", image: ""
       })
     }
     else {
@@ -65,7 +65,7 @@ export class AddFoodComponent implements OnInit {
     this.currentProductId = null;
     this.editMode = false;
     this.form.setValue({
-      name: "", price: "", type: "", description: ""
+      name: "", price: "", type: "", nutrients: "", description: "", image: ""
     })
   }
 
@@ -82,6 +82,8 @@ export class AddFoodComponent implements OnInit {
       name: current_product.name,
       price: current_product.price,
       type: current_product.type,
+      nutrients: current_product.nutrients,
+      image: current_product.image,
       description: current_product.description
     });
 
@@ -95,7 +97,7 @@ export class AddFoodComponent implements OnInit {
     this.currentProductId = null;
     this.editMode = false;
     this.form.setValue({
-      name: "", price: "", type: "", description: ""
+      name: "", price: "", type: "", nutrients: "", description: "", Image: ""
     })
   }
 }

@@ -7,20 +7,40 @@
                     <form class="container" #foodForm="ngForm" (ngSubmit)="addItem(foodForm.value)">
                         <div class="mb-3">
                             <label class="form-label">Name</label>
-                            <input type="text" class="form-control" placeholder="Item Name" name="name" ngModel>
+                            <input type="text" class="form-control" placeholder="Item Name" name="name" ngModel required
+                                #name="ngModel">
+                            <span *ngIf="name.invalid && name.touched" style="color: red;">Invalid Data</span>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Price</label>
-                            <input type="text" class="form-control" placeholder="Item Price" name="price" ngModel>
+                            <input type="text" class="form-control" placeholder="Item Price" name="price" ngModel
+                                required #price="ngModel" pattern="^\d{0,8}(\.\d{1,4})?$">
+                            <span *ngIf="price.invalid && price.touched" style="color: red;">Invalid Data</span>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Type</label>
-                            <input type="text" class="form-control" placeholder="Item Type" name="type" ngModel>
+                            <input type="text" class="form-control" placeholder="Item Type" name="type" ngModel required
+                                #type="ngModel">
+                            <span *ngIf="type.invalid && type.touched" style="color: red;">Invalid Data</span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nutrients</label>
+                            <input type="text" class="form-control" placeholder="Item Nutrients" name="nutrients"
+                                ngModel required #nutrients="ngModel">
+                            <span *ngIf="nutrients.invalid && nutrients.touched" style="color: red;">Invalid Data</span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Image URL</label>
+                            <input type="text" class="form-control" placeholder="Item Url" name="image" ngModel required
+                                #image="ngModel">
+                            <span *ngIf="image.invalid && image.touched" style="color: red;">Invalid Data</span>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Description</label>
                             <textarea class="form-control" rows="3" placeholder="Item Description" name="description"
-                                ngModel></textarea>
+                                ngModel required #description="ngModel"></textarea>
+                            <span *ngIf="description.invalid && description.touched" style="color: red;">Invalid
+                                Data</span>
                         </div>
                         <input type="submit" class="btn btn-primary bt1"
                             value="{{editMode ? 'Update Product' : 'Add Product'}}">

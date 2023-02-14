@@ -1,2 +1,17 @@
 <app-navbar></app-navbar>
+<div class="container-fluid" *ngIf="admin == true && user == false">
+    <div class="alert alert-primary" role="alert">
+        Admin is Logged In
+    </div>
+</div>
+<div class="container-fluid" *ngIf="admin == false && user == true">
+    <div class="alert alert-primary" role="alert">
+        User is Logged In
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="alert alert-success" role="alert" *ngIf="message.length > 0">
+        {{message}}
+    </div>
+</div>
 <app-search-form></app-search-form>

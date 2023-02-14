@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" routerLink="/">Kitchen Story</a>
+            <a class="navbar-brand" routerLink="/">Home</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -9,6 +9,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/viewAllProducts">View All Products</a>
+                    </li>
                     <li class="nav-item" *ngIf="userLI == false && adminLI == false">
                         <a class="nav-link" routerLink="/adminLogIn">Admin Log In</a>
                     </li>
@@ -18,12 +21,15 @@
                     <li class="nav-item" *ngIf="userLI == false && adminLI == true">
                         <a class="nav-link" routerLink="/adminLogOut">Admin Log Out</a>
                     </li>
+                    <li class="nav-item" *ngIf="userLI == true">
+                        <a class="nav-link" routerLink="/viewCart">View Cart</a>
+                    </li>
                     <li class="nav-item" *ngIf="userLI == true && adminLI == false">
                         <a class="nav-link" routerLink="/userLogOut">User Log Out</a>
                     </li>
                 </ul>
                 <span class="navbar-text">
-                    We serve deliciously.....
+                    Kitchen Story: We serve deliciously.....
                 </span>
             </div>
         </div>

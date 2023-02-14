@@ -3,13 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginServiceService } from './login-service.service';
+import { LoginService } from './login.service';
 import { NavbarComponent } from './navbar/navbar.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminLogoutComponent } from './admin-logout/admin-logout.component';
-import { UserLoginComponent } from './user-login/user-login.component';
 import { UserLogoutComponent } from './user-logout/user-logout.component';
-import { HomeComponent } from './home/home.component';
 import { WelcomeAdminComponent } from './welcome-admin/welcome-admin.component';
 import { WelcomeUserComponent } from './welcome-user/welcome-user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -18,21 +15,36 @@ import { AddFoodComponent } from './add-food/add-food.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewItemComponent } from './view-item/view-item.component';
 import { SearchFormComponent } from './search-form/search-form.component';
+import { HomeComponent } from './home/home.component';
+import { ViewCartComponent } from './view-cart/view-cart.component';
+import { LoginAdminComponent } from './login-admin/login-admin.component';
+import { LoginUserComponent } from './login-user/login-user.component';
+import { ConfirmPageComponent } from './confirm-page/confirm-page.component';
+import { AllOrderPlacedComponent } from './all-order-placed/all-order-placed.component';
+import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
+import { DeleteFromCartComponent } from './delete-from-cart/delete-from-cart.component';
+import { ViewAllProductsComponent } from './view-all-products/view-all-products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    AdminLoginComponent,
     AdminLogoutComponent,
-    UserLoginComponent,
     UserLogoutComponent,
-    HomeComponent,
     WelcomeAdminComponent,
     WelcomeUserComponent,
     AddFoodComponent,
     ViewItemComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    HomeComponent,
+    ViewCartComponent,
+    LoginAdminComponent,
+    LoginUserComponent,
+    ConfirmPageComponent,
+    AllOrderPlacedComponent,
+    AddToCartComponent,
+    DeleteFromCartComponent,
+    ViewAllProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +54,7 @@ import { SearchFormComponent } from './search-form/search-form.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [LoginServiceService],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
